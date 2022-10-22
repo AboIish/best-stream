@@ -1,19 +1,5 @@
-                               -- OPEN SOURCED
-                                 -- OPEN SOURCED
-                                  -- OPEN SOURCED
-                                   -- OPEN SOURCED
-                                    -- OPEN SOURCED
-                                     -- OPEN SOURCED
-                                      -- OPEN SOURCED
-                                       -- OPEN SOURCED
-                                        -- OPEN SOURCED
-                                         -- OPEN SOURCED
-                                          -- OPEN SOURCED
-                                           -- OPEN SOURCED
-                                -- OPEN SOURCED
-                                 -- OPEN SOURCED
-                                  -- OPEN SOURCED -- OPEN SOURCED -- OPEN SOURCED -- OPEN SOURCED
-                                local Aiming = loadstring(game:HttpGet("https://pastebin.com/raw/7jXT32iS", true))()
+                            _G.PRED = 0.00100
+                            local Aiming = loadstring(game:HttpGet("https://pastebin.com/raw/7jXT32iS", true))()
                             Aiming.TeamCheck(false)
 
 
@@ -111,3 +97,17 @@ end)
                                     CurrentCamera.CFrame = CFrame.lookAt(CurrentCamera.CFrame.Position, Hit.Position)
                                 end
                                 end)
+                              local ping 
+                              local Value 
+                              local pingValue 
+                              local PingNumber 
+
+                              game:GetService("RunService").RenderStepped:Connect(function()
+    
+                                   ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+                                   Value = tostring(ping)
+                                   pingValue = Value:split(" ")
+                                   PingNumber = pingValue[1]
+    
+                                   DaHoodSettings.Prediction = PingNumber / 85000 + _G.PRED
+                               end)
