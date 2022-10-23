@@ -1,4 +1,4 @@
-                            _G.PRED = 0.00100
+
                             local Aiming = loadstring(game:HttpGet("https://pastebin.com/raw/7jXT32iS", true))()
                             Aiming.TeamCheck(false)
 
@@ -16,7 +16,7 @@
                             local DaHoodSettings = {
                                 SilentAim = true,
                                 AimLock = false,
-                                Prediction = 0.142,
+                                Prediction = 0.14,
                                 AimLockKeybind = Enum.KeyCode.E
                             }
                             getgenv().DaHoodSettings = DaHoodSettings
@@ -97,17 +97,3 @@ end)
                                     CurrentCamera.CFrame = CFrame.lookAt(CurrentCamera.CFrame.Position, Hit.Position)
                                 end
                                 end)
-                              local ping 
-                              local Value 
-                              local pingValue 
-                              local PingNumber 
-
-                              game:GetService("RunService").RenderStepped:Connect(function()
-    
-                                   ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-                                   Value = tostring(ping)
-                                   pingValue = Value:split(" ")
-                                   PingNumber = pingValue[1]
-    
-                                   DaHoodSettings.Prediction = PingNumber / 92000 + _G.PRED
-                               end)
